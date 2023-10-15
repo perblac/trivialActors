@@ -7,6 +7,8 @@ actores.forEach(
 
 // ------------ declaracion de variables
 const campoPregunta = document.getElementById("textoPregunta");
+const botonResponder = document.getElementById("enviarRespuesta");
+const botonNueva = document.getElementById("nuevaPregunta");
 
 let pregunta = ""; // pregunta que se está realizando
 let respuestaCorrecta = []; // array con las respuestas correctas
@@ -118,9 +120,13 @@ function comprobarRespuesta() {
     // guardamos preguntaId de la pregunta realizada para no repetirla, e incrementamos el nº de preguntas realizadas
     preguntasHechas.add(preguntaId);
     totalPreguntas++;
+    imprimeEstado();
+    botonResponder.innerHTML = "Siguiente";
   } else {
     limpiarCampos();
+    imprimeEstado();
     nuevaPregunta();
+    botonResponder.innerHTML = "Responder";
   }
 }
 
@@ -129,19 +135,18 @@ function comprobarRespuesta() {
  */
 function limpiarCampos() {
   document.getElementById("respuesta").value = "";
-  let cabecera = `Su resultado: ${totalPreguntas} preguntas respondidas, ${aciertos} preguntas acertadas`;
-  document.getElementById("resultadoHeader").innerHTML = cabecera;
   document.getElementById("resultadoTitle").innerHTML = "";
   document.getElementById("resultado").innerHTML = "";
 }
 
+function imprimeEstado() {
+  let cabecera = `Su resultado: ${totalPreguntas} preguntas respondidas, ${aciertos} preguntas acertadas`;
+  document.getElementById("resultadoHeader").innerHTML = cabecera;
+}
+
 function init() {
-  document
-    .getElementById("enviarRespuesta")
-    .addEventListener("click", comprobarRespuesta);
-  document
-    .getElementById("siguientePregunta")
-    .addEventListener("click", nuevaPregunta);
+  botonResponder.addEventListener("click", comprobarRespuesta);
+  botonNueva.addEventListener("click", nuevaPregunta);
   nuevaPregunta();
 }
 
