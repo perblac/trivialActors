@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivial Actors</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script type="module" src="./script.js" defer></script>
+</head>
+
+<body>
+  <header class="bg-primary text-white text-center py-3 mb-4">Trivial Actors</header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="questionForm">
+          <div class="mb-3">
+            <div class="mb-3">
+              <label class="form-label" id="textoPregunta" for="respuesta">Pregunta</label>
+              <input type="text" class="form-control" id="respuesta" placeholder="Escriba su respuesta">
+            </div>
+            <button class="btn btn-primary" id="enviarRespuesta">Responder</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="card text-center">
+          <div class="card-header bg-primary text-white" id="resultadoHeader">
+            Su resultado:
+          </div>
+          <div class="card-body">
+            <h2 id="resultadoTitle" class="card-title">              
+            </h2>
+            <p id="resultado" class="card-text">
+            </p>
+            <a href="#" class="btn btn-primary" id="siguientePregunta">Siguiente pregunta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
